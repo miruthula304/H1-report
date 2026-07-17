@@ -157,39 +157,71 @@ const FEATURE_RELEASES = [
 // ============================================================
 
 
-const INSIGHTS = {
+const RECENT_WINS = [
+  {
+    title: "📊 Deployment Dashboard Implementation",
+    description:
+      "Implemented Grafana deployment dashboards to improve visibility into deployment activities and support smooth production rollouts.",
+  },
+  {
+    title: "🗄️ Couchbase Application Dashboard",
+    description:
+      "Developed Grafana dashboards for Couchbase applications, providing enhanced visibility into database health and performance.",
+  },
+  {
+    title: "📦 Kafka Monitoring Dashboard",
+    description:
+      "Implemented Kafka dashboards in Grafana to monitor broker health, message flow, and consumer activity in real time.",
+  },
+  {
+    title: "🚀 IDM Go-Live Readiness Dashboard",
+    description:
+      "Delivered production readiness dashboards using Splunk and Grafana, improving deployment confidence and operational preparedness.",
+  },
+  {
+    title: "🔔 Domain Alert Ownership Transition",
+    description:
+      "Successfully handed over domain-specific alerts to Fulfilment Integration and BRM teams, improving ownership and reducing Spark callout incidents.",
+  },
+];
 
-recentWins: [
-  "Deployment dashboard implemented in Grafana to improve visibility into deployment activities and support smooth production rollouts.",
-  "Couchbase application dashboard developed in Grafana, providing enhanced visibility into database health and performance.",
-  "Kafka dashboard implemented in Grafana to monitor broker health, message flow, and consumer activity in real time.",
-  "IDM go-live readiness dashboard delivered in the production environment using both Splunk and Grafana, improving deployment confidence and operational readiness.",
-  "Successfully handed over domain-specific alerts to Fulfilment Integration and BRM teams, improving ownership and significantly reducing Spark callout incident rates.",
-],
+
+const EMERGING_TRENDS = [
+  {
+    title: "📈 Intelligent Alert Optimization",
+    description:
+      "Improving dashboard and alert efficiency after IDM go-live by segregating faster and slower burn-rate alerts.",
+  },
+  {
+    title: "🚀 Deployment Visibility Enhancement",
+    description:
+      "Providing real-time visibility into pod upscaling and downscaling activities during monthly production deployments.",
+  },
+  {
+    title: "🛡️ Incident Reduction & Stability Improvements",
+    description:
+      "Reducing P3 and P4 incidents compared to H1 2025, with IDM go-live callouts stabilized within two days.",
+  },
+];
 
 
-emergingTrends:[
-
-"Post IDM go-live, dashboard and alert efficiency improved by segregating faster and slower burn-rate alerts.",
-
-"Deployment dashboard provided live visibility of pod upscaling and downscaling during monthly production deployments.",
-
-"P3 and P4 incidents reduced compared to H2 2025. IDM go-live resulted in multiple callouts which were stabilized within two days."
-
-],
-
-
-teamEfforts:[
-
-"Cross-team collaboration strengthened for release stability.",
-
-"Proactive health checks introduced during non-peak hours.",
-
-"Documentation and knowledge sharing activities completed."
-
-]
-
-};
+const TEAM_EFFORTS = [
+  {
+    title: "🤝 Cross-Team Collaboration",
+    description:
+      "Strengthening collaboration across teams to improve release stability and delivery confidence.",
+  },
+  {
+    title: "🩺 Proactive Health Checks",
+    description:
+      "Introducing proactive application health checks during non-peak hours to improve platform reliability.",
+  },
+  {
+    title: "📚 Documentation & Knowledge Sharing",
+    description:
+      "Completing documentation improvements and knowledge-sharing activities to enhance team efficiency.",
+  },
+];
 
 
 
@@ -200,30 +232,57 @@ teamEfforts:[
 
 
 const WHATS_NEXT = [
-
-"Kafka Java 17 upgrade – Migrating Kafka services to Java 17 for improved performance and long-term support.",
-
-"Kafka upgrade from 7.9.4 to 8.1.x for enhanced features, stability and security.",
-
-"Kafka BAU operation pipelines improvements for better automation and monitoring.",
-
-"Couchbase upgrade to 8.2.x for compatibility, stability and new functionality.",
-
-"Compliance transition from Snyk to Wiz for improved cloud security coverage.",
-
-"Pen testing for microservices running on GKE to strengthen security posture.",
-
-"Kafka DR and failover testing to validate resilience.",
-
-"Microservices Kubernetes deployment overhaul for scalability and reliability.",
-
-"Apigee Edge to Apigee X migration for modern API management capabilities.",
-
-"Monitoring alert threshold fine tuning to reduce noise and improve incident response."
-
+  {
+    title: "☕ Kafka Java 17 Upgrade",
+    description:
+      "Migrating Kafka services to Java 17 for improved performance and long-term support.",
+  },
+  {
+    title: "📦 Kafka 7.9.4 to 8.1.x Upgrade",
+    description:
+      "Enhancing Kafka platform features, stability, and security through the latest version upgrade.",
+  },
+  {
+    title: "⚙️ Kafka BAU Operation Pipeline Improvements",
+    description:
+      "Improving automation, operational efficiency, and monitoring capabilities for smoother platform operations.",
+  },
+  {
+    title: "🗄️ Couchbase 8.2.x Upgrade",
+    description:
+      "Improving compatibility, stability, and enabling new database functionality through the latest upgrade.",
+  },
+  {
+    title: "🛡️ Compliance Transition (Snyk → Wiz)",
+    description:
+      "Enhancing cloud security coverage, vulnerability management, and compliance posture through Wiz adoption.",
+  },
+  {
+    title: "🔍 GKE Microservices Pen Testing",
+    description:
+      "Strengthening security posture through proactive penetration testing of microservices running on GKE.",
+  },
+  {
+    title: "🔄 Kafka DR & Failover Testing",
+    description:
+      "Validating platform resilience, recovery readiness, and business continuity through disaster recovery testing.",
+  },
+  {
+    title: "☸️ Kubernetes Deployment Modernization",
+    description:
+      "Overhauling microservices deployment processes to improve scalability, reliability, and operational consistency.",
+  },
+  {
+    title: "🚀 Apigee Edge to Apigee X Migration",
+    description:
+      "Modernizing API management capabilities with enhanced security, scalability, and cloud-ready architecture.",
+  },
+  {
+    title: "📈 Monitoring Alert Optimization",
+    description:
+      "Fine-tuning alert thresholds to reduce noise and improve incident response efficiency.",
+  },
 ];
-
-
 
 // ============================================================
 // COMPARISON DATA
@@ -413,36 +472,31 @@ function BarChart({ data }) {
 
 
 
-function InsightCard({emoji,title,items}){
+function InsightCard({ eyebrow, title, items = [] }) {
+  return (
+    <div className="insight-card">
+      <span className="eyebrow">{eyebrow}</span>
 
-return(
-<div
-className="insight-card"
-style={S.card}
->
+      <h3>{title}</h3>
 
-<div style={S.cardTitle}>
-<span>{emoji}</span>
-{title}
-</div>
+      {Array.isArray(items) &&
+        items.map((item, index) => (
+          <div key={index} style={{ marginBottom: "20px" }}>
+            <h4
+              style={{
+                color: "#0369a1",
+                marginBottom: "8px",
+              }}
+            >
+              {item.title}
+            </h4>
 
-
-<ul style={S.cardList}>
-{
-items.map((x,i)=>
-<li key={i}>{x}</li>
-)
+            <p>{item.description}</p>
+          </div>
+        ))}
+    </div>
+  );
 }
-</ul>
-
-
-</div>
-)
-
-}
-
-
-
 // ─────────────────────────────────────────────────────────────
 // TAB COMPONENTS
 // ─────────────────────────────────────────────────────────────
@@ -907,86 +961,81 @@ function MeettheExpertsTab() {
 // ─────────────────────────────────────────────────────────────
 
 
-function InsightsTab(){
+function InsightsTab() {
 
-return(
+  return (
 
-<div className="tab-content">
-
-
-<div style={S.section}>
+    <div className="tab-content">
 
 
-<h2 style={S.sectionTitle}>
-💡 Insights
-</h2>
+      <div style={S.section}>
 
 
+        <h2 style={S.sectionTitle}>
+          💡 Insights
+        </h2>
 
 <div style={S.cardGrid}>
 
+  <InsightCard
+    emoji="🎉"
+    title="Recent Wins"
+    items={RECENT_WINS}
+  />
 
-<InsightCard
-emoji="🎉"
-title="Recent Wins"
-items={INSIGHTS.recentWins}
-/>
+  <InsightCard
+    emoji="📉"
+    title="Emerging Trends"
+    items={EMERGING_TRENDS}
+  />
 
-
-
-<InsightCard
-emoji="📉"
-title="Emerging Trends"
-items={INSIGHTS.emergingTrends}
-/>
-
-
-
-<InsightCard
-emoji="🤝"
-title="Team Efforts"
-items={INSIGHTS.teamEfforts}
-/>
-
+  <InsightCard
+    emoji="🤝"
+    title="Team Efforts"
+    items={TEAM_EFFORTS}
+  />
 
 </div>
 
 
-</div>
+      </div>
 
 
 
-<div style={S.section}>
+      <div style={S.section}>
 
 
-<h2 style={S.sectionTitle}>
-🧭 What's Next
-</h2>
+        <h2 style={S.sectionTitle}>
+          🧭 What's Next
+        </h2>
 
 
 
-<ul style={S.nextList}>
+        <ul style={S.nextList}>
 
-{
-WHATS_NEXT.map((x,i)=>
+          {WHATS_NEXT.map((item, index) => (
+            <div key={index}>
 
-<li key={i}>
-{x}
-</li>
+              <h3>
+                {item.title}
+              </h3>
 
-)
+              <p>
+                {item.description}
+              </p>
 
-}
+            </div>
+          ))}
 
-</ul>
-
-
-</div>
+        </ul>
 
 
-</div>
+      </div>
 
-)
+
+    </div>
+
+  );
 
 }
 
