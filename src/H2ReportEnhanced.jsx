@@ -504,7 +504,7 @@ const HIGHLIGHTS=[
 {
 label:"Service health",
 value:"Stable",
-detail:"Limited number of critical incidents reported"
+detail:"Limited number of critical incidents"
 },
 
 {
