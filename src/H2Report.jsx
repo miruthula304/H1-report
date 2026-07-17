@@ -200,7 +200,7 @@ const EMERGING_TRENDS = [
   {
     title: "🛡️ Incident Reduction & Stability Improvements",
     description:
-      "Reducing P3 and P4 incidents compared to H1 2025, with IDM go-live callouts stabilized within two days.",
+      "Reducing P3 and P4 incidents compared to H1-2025, with IDM go-live callouts stabilized within two days.",
   },
 ];
 
@@ -595,6 +595,10 @@ delay={i*0.05}
 
 
 
+
+/* =========================================================
+   INCIDENT TAB
+========================================================= */
 
 function IncidentsTab(){
 
@@ -1204,7 +1208,7 @@ className="hero-title"
 style={S.heroTitle}
 >
 
-2026 H1 APIMS : Platform and Operations
+H1-2026 APIMS : Platform and Operations
 
 </h1>
 

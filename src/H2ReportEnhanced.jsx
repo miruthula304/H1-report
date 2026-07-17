@@ -130,7 +130,7 @@ const KEY_METRICS = [
     value:TOTAL_P1P2,
     tone:"critical",
     href:
-    "https://spark.at.sky/now/nav/ui/classic/params/target/incident_list.do"
+    "https://sky.atlassian.net/wiki/spaces/CRM/pages/4379803716/2026+Priority+Incident+Tracker"
   },
 
   {
@@ -284,7 +284,7 @@ const EMERGING_TRENDS = [
   {
     title: "🛡️ Incident Reduction & Stability Improvements",
     description:
-      "Reducing P3 and P4 incidents compared to H1 2025, with IDM go-live callouts stabilized within two days.",
+      "Reducing P3 and P4 incidents compared to H1-2025, with IDM go-live callouts stabilized within two days.",
   },
 ];
 
@@ -401,12 +401,12 @@ const COMPARISON_DATA = [
     label: "2025 Total",
     segments: [
       {
-        name: "H1 2025",
+        name: "H1-2025",
         value: 300,
         color: "#0077b6",
       },
       {
-        name: "H2 2025",
+        name: "H2-2025",
         value: 350,
         color: "#90e0ef",
       },
@@ -415,10 +415,10 @@ const COMPARISON_DATA = [
   },
 
   {
-    label: "H1 2026",
+    label: "H1-2026",
     segments: [
       {
-        name: "H1 2026",
+        name: "H1-2026",
         value: TOTAL_INCIDENTS,
         color: "#023e8a",
       },
@@ -448,7 +448,7 @@ function MonthlyComparison() {
     <div className="monthly-wrap">
 
       <h3 className="monthly-title">
-        Monthly Comparison (H1 2025 vs H1 2026)
+        Monthly Comparison (H1-2025 vs H1-2026)
       </h3>
 
       <div className="graph">
@@ -468,7 +468,7 @@ function MonthlyComparison() {
 
                 <div className="graph-bars">
 
-                  {/* H1 2025 bar */}
+                  {/* H1-2025 bar */}
                   <div className="bar-wrap">
                     <div
                       className="bar h2025"
@@ -477,7 +477,7 @@ function MonthlyComparison() {
                     <span>{item.value}</span>
                   </div>
 
-                  {/* H1 2026 bar */}
+                  {/* H1-2026 bar */}
                   <div className="bar-wrap">
                     <div
                       className="bar h2026"
@@ -504,19 +504,19 @@ const HIGHLIGHTS=[
 {
 label:"Service health",
 value:"Stable",
-detail:"Low critical incident volume"
+detail:"Limited number of critical incidents reported"
 },
 
 {
 label:"Release execution",
 value:"5 shipped",
-detail:"Successful H1 delivery"
+detail:"Successful H1-2026 delivery"
 },
 
 {
 label:"Response posture",
 value:"<15 min",
-detail:"High priority response target"
+detail:"Improved response time"
 }
 
 ];
@@ -930,245 +930,376 @@ key={metric.label}
 ========================================================= */
 
 
-function IncidentsTab(){
+/* =========================================================
+ INCIDENT TAB
+========================================================= */
 
+/* =========================================================
+   INCIDENT TAB
+========================================================= */
 
-return (
+function IncidentsTab() {
 
-<div className="tab-panel">
+  return (
 
+    <div className="tab-panel">
 
 
-<section className="report-section report-section--split">
+      <section className="report-section report-section--split">
 
 
-<div>
+        <div>
 
 
-<div className="section-heading">
+          <div className="section-heading">
 
-<div>
 
-<span className="eyebrow">
-Operations trend
-</span>
+            <div>
 
-<h2>
-Monthly incident profile
-</h2>
+              <span className="eyebrow">
+                Operations trend
+              </span>
 
-</div>
 
-</div>
+              <h2>
+                Monthly incident profile
+              </h2>
 
+            </div>
 
-<TrendChart data={INCIDENT_DATA}/>
 
 
-</div>
+            <a
+              href="https://sky.atlassian.net/wiki/spaces/CRM/pages/4379803716/2026+Priority+Incident+Tracker"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color:"#00e5ff",
+                fontWeight:"600",
+                textDecoration:"none",
+                marginLeft:"auto",
+                alignSelf:"center"
+              }}
+            >
+              2026 Priority Tracker
+            </a>
 
 
+          </div>
 
 
-<aside className="support-card">
 
+          <TrendChart data={INCIDENT_DATA}/>
 
-<span className="eyebrow">
-Readout
-</span>
 
+        </div>
 
-<h3>
-What stands out
-</h3>
 
 
-<p>
-P1/P2 volume remained low while standard incidents stayed manageable throughout H1 2026.
-</p>
 
+        <aside className="support-card">
 
-<ul className="compact-list">
 
-<li>
-Total incidents: {TOTAL_INCIDENTS}
-</li>
+          <span className="eyebrow">
+            Readout
+          </span>
 
 
-<li>
-Highest incident month: June
-</li>
+          <h3>
+            What stands out
+          </h3>
 
 
-</ul>
+          <p>
+            P1/P2 volume remained low while standard incidents stayed manageable throughout H1-2026.
+          </p>
 
 
-</aside>
 
+          <ul className="compact-list">
 
 
-</section>
+            <li>
+              Total incidents: {TOTAL_INCIDENTS}
+            </li>
 
 
+            <li>
+              Highest incident month: June
+            </li>
 
 
+          </ul>
 
-<section className="report-section">
 
+        </aside>
 
-<div className="section-heading">
 
-<div>
 
-<span className="eyebrow">
-Supporting data
-</span>
+      </section>
 
-<h2>
-Monthly breakdown
-</h2>
 
-</div>
 
-</div>
 
 
 
+      <section className="report-section">
 
-<div className="table-shell">
 
+        <div className="section-heading">
 
-<table className="report-table">
 
+          <div>
 
-<thead>
-  <tr>
-    <th>Month</th>
-    <th>P1</th>
-    <th>P2</th>
-    <th>P3</th>
-    <th>P4</th>
-    <th>Total</th>
-  </tr>
-</thead>
+            <span className="eyebrow">
+              Supporting data
+            </span>
 
 
+            <h2>
+              Monthly breakdown
+            </h2>
 
-<tbody>
 
-{MONTHLY_INCIDENTS.map((item) => (
+          </div>
 
-<tr key={item.month}>
 
-<td>
-{item.month} 2026
-</td>
+        </div>
 
 
-<td>
-{item.p1}
-</td>
 
 
-<td>
-{item.p2}
-</td>
 
+        <div className="table-shell">
 
-<td>
-{item.p3}
-</td>
 
 
-<td>
-{item.p4}
-</td>
+          <table className="report-table">
 
 
-<td>
+            <thead>
 
-{item.p1 + item.p2 + item.p3 + item.p4}
+              <tr>
 
+                <th>
+                  Month
+                </th>
 
-{item.marker === "red1" && (
-<span style={{color:"red", marginLeft:"5px"}}>
-★
-</span>
-)}
+                <th>
+                  P1
+                </th>
 
+                <th>
+                  P2
+                </th>
 
-{item.marker === "red2" && (
-<span style={{color:"red", marginLeft:"5px"}}>
-★★
-</span>
-)}
+                <th>
+                  P3
+                </th>
 
+                <th>
+                  P4
+                </th>
 
-{item.marker === "green1" && (
-<span style={{color:"green", marginLeft:"5px"}}>
-★
-</span>
-)}
+                <th>
+                  Total
+                </th>
 
-</td>
 
+              </tr>
 
-</tr>
+            </thead>
 
-))}
 
-</tbody>
 
 
-</table>
 
+            <tbody>
 
 
-<div style={{marginTop:"20px"}}>
+              {
+                MONTHLY_INCIDENTS.map((item)=>(
 
-<h3>
-Star Glossary
-</h3>
 
+                  <tr key={item.month}>
 
-<p>
-<span style={{color:"red"}}>
-★
-</span>
-{" "}
-= High count is due to customer profile refresh and pod allocation for new customer during the Bundesliga match
-</p>
 
+                    <td>
+                      {item.month} 2026
+                    </td>
 
-<p>
-<span style={{color:"red"}}>
-★★
-</span>
-{" "}
-= Couchbase issue and IDM go-live related incidents
-</p>
 
+                    <td>
+                      {item.p1}
+                    </td>
 
-<p>
-<span style={{color:"green"}}>
-★
-</span>
-{" "}
-= Handover of the service domain to the fulfillment
-</p>
 
+                    <td>
+                      {item.p2}
+                    </td>
 
-</div>
 
+                    <td>
+                      {item.p3}
+                    </td>
 
-</div>
 
+                    <td>
+                      {item.p4}
+                    </td>
 
-</section>
-</div>
-);
+
+
+                    <td>
+
+
+                      {item.p1 + item.p2 + item.p3 + item.p4}
+
+
+
+                      {
+                        item.marker === "red1" && (
+
+                          <span
+                            style={{
+                              color:"red",
+                              marginLeft:"5px"
+                            }}
+                          >
+                            ★
+                          </span>
+
+                        )
+                      }
+
+
+
+                      {
+                        item.marker === "red2" && (
+
+                          <span
+                            style={{
+                              color:"red",
+                              marginLeft:"5px"
+                            }}
+                          >
+                            ★★
+                          </span>
+
+                        )
+                      }
+
+
+
+                      {
+                        item.marker === "green1" && (
+
+                          <span
+                            style={{
+                              color:"green",
+                              marginLeft:"5px"
+                            }}
+                          >
+                            ★
+                          </span>
+
+                        )
+                      }
+
+
+
+                    </td>
+
+
+
+                  </tr>
+
+
+                ))
+              }
+
+
+            </tbody>
+
+
+
+          </table>
+
+
+
+
+
+
+          {/* STAR GLOSSARY */}
+
+          <div style={{marginTop:"20px"}}>
+
+
+            <h3>
+              Star Glossary
+            </h3>
+
+
+
+            <p>
+
+              <span style={{color:"red"}}>
+                ★
+              </span>
+
+              {" "}
+              = High count is due to customer profile refresh and pod allocation for new customer during the Bundesliga match
+
+            </p>
+
+
+
+
+            <p>
+
+              <span style={{color:"red"}}>
+                ★★
+              </span>
+
+              {" "}
+              = Couchbase issue and IDM go-live related incidents
+
+            </p>
+
+
+
+
+
+            <p>
+
+              <span style={{color:"green"}}>
+                ★
+              </span>
+
+              {" "}
+              = Handover of the service domain to the fulfillment
+
+            </p>
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </section>
+
+
+
+    </div>
+
+  );
+
 }
-
 
 function Platform() {
   const platformAchievements = [
@@ -2073,7 +2204,7 @@ return (
 
 
 <span className="hero__eyebrow">
-2026 H1 Report
+H1-2026 Report
 </span>
 
 
@@ -2094,11 +2225,6 @@ Engineering performance summary covering incidents, releases, platform improveme
 
 
 <div className="hero__panel">
-
-
-<span className="eyebrow">
-Leadership Highlights
-</span>
 
 
 
