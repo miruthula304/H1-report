@@ -130,7 +130,7 @@ const KEY_METRICS = [
     value:TOTAL_P1P2,
     tone:"critical",
     href:
-    "https://sky.atlassian.net/wiki/spaces/CRM/pages/4379803716/2026+Priority+Incident+Tracker"
+    "https://spark.at.sky/now/nav/ui/classic/params/target/incident_list.do%3Fsysparm_query%3Dassignment_group%253Daa462a321b4aac94fe553055464bcb57%255Eopened_atBETWEENjavascript%3Ags.dateGenerate(%25272026-01-01%2527%252C%252700%3A00%3A00%2527)%40javascript%3Ags.dateGenerate(%25272026-06-30%2527%252C%252723%3A59%3A59%2527)%255Enumber%253DINC5809625%255EORpriority%253D2%26sysparm_first_row%3D1%26sysparm_view%3D"
   },
 
   {
